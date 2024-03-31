@@ -1,0 +1,233 @@
+.application-section-form-container {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+}
+
+.application-section-form {
+  max-width: 500px;
+}
+
+.application-section-card {
+  display: none;
+}
+
+/*#region Text Input */
+
+.text-input {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(18, 20, 23, 0.1);
+  padding: 16px 38px 16px 18px;
+
+  color: var(--black);
+  font-size: 14px;
+  line-height: 1.28571;
+
+  margin-bottom: 18px;
+  transition: border-color var(--transition);
+}
+
+.text-input.text-input--invalid {
+  border-color: var(--red);
+  outline: none;
+}
+
+.text-input::placeholder {
+  color: var(--black);
+}
+
+.text-input-wrapper {
+  position: relative;
+}
+
+.text-input-error-info {
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 20px;
+  height: 20px;
+
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translate(0, -50%);
+  transition: opacity var(--transition);
+}
+
+.text-input-error-info::after {
+  content: '\26A0';
+  color: var(--black_80);
+  font-size: 26px;
+}
+
+.text-input.text-input--invalid + .text-input-error-info {
+  pointer-events: initial;
+  opacity: 1;
+}
+
+textarea.text-input {
+  resize: none;
+  height: 94px;
+}
+
+textarea.text-input + .text-input-error-info {
+  top: 26px;
+}
+
+.text-input:focus:not(.text-input--invalid) {
+  border-color: var(--green);
+  outline: none;
+}
+
+.text-input:last-of-type {
+  margin-bottom: 20px;
+}
+
+/*#endregion */
+
+.application-section-radio-title {
+  color: var(--black);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.33333;
+  letter-spacing: -0.02em;
+
+  margin-bottom: 14px;
+}
+
+.application-section-radio-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.application-section-radio-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.application-section-radio-label {
+  color: var(--black);
+  font-size: 14px;
+  line-height: 1.71429;
+  letter-spacing: -0.02em;
+}
+
+.application-section .button {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.application-section-form-message {
+  color: rgba(18, 20, 23, 0.5);
+  font-size: 12px;
+  line-height: 1.33333;
+}
+.application-section-privacy-policy {
+  color: currentColor;
+  text-decoration-line: underline;
+}
+
+.radio-button {
+  cursor: pointer;
+  appearance: none;
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(18, 20, 23, 0.2);
+  transition: var(--transition);
+  transition-property: border-color, background-color;
+}
+
+.radio-button:checked {
+  border-color: var(--green);
+  background-color: var(--green);
+  outline: 2px solid var(--white);
+  outline-offset: -4px;
+}
+
+@media only screen and (min-width: 768px) {
+  .application-section-heading {
+    font-size: 40px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  textarea.text-input {
+    height: 104px;
+    margin-bottom: 32px;
+  }
+
+  .application-section-radio-title {
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+
+    margin-bottom: 16px;
+  }
+
+  .application-section-radio-input-group {
+    flex-direction: row;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .application-section-form-message {
+    font-size: 14px;
+    line-height: 1.71429;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .application-section-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 492px;
+    height: 578px;
+    border-radius: 30px;
+    padding: 0 20px 40px 20px;
+
+    background-color: var(--green);
+    background-image: url('../images/application/leave-an-application.png');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+  }
+
+  .application-section-card-heading {
+    color: var(--white);
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .application-section-card-description {
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .application-section-form {
+    max-width: unset;
+    flex: 1;
+  }
+}
+
+@media only screen and (min-resolution: 192dpi) {
+  .application-section-card {
+    background-image: url('../images/application/leave-an-application@2x.png');
+  }
+}
